@@ -1,1 +1,47 @@
+# Find the factorial of n.
+def factorial(n):
+    print("Factorial:", n)
 
+    if n <= 1:  # Base case
+        return 1
+
+    return n * factorial(n - 1)  # Recursive case
+
+
+# Find the Fibonacci number at position n.
+def fibonacci(n):
+    if n <= 1:  # Base case
+        return n
+
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+# Add the numbers in a list.
+def sum_list(numbers):
+    print("List:", numbers)
+
+    if numbers == []:  # Base case
+        return 0
+
+    # Add the first number to the sum of the rest.
+    return numbers[0] + sum_list(numbers[1:])
+
+
+# Main program
+try:
+    number = int(input("Enter a number between 0 and 10: "))
+
+    if number < 0 or number > 10:
+        print("Please enter a number between 0 and 10.")
+    else:
+        print("Factorial result:", factorial(number))
+        print("Fibonacci result:", fibonacci(number))
+
+        numbers = [2, 4, 6, 8]
+        print("List total:", sum_list(numbers))
+
+except ValueError:
+    print("Please enter a whole number.")
+
+except RecursionError:
+    print("Too many recursive calls.")
