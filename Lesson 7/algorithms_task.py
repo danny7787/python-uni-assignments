@@ -1,0 +1,36 @@
+
+# PSEUDOCODE 
+# START
+# INPUT a whole number
+# IF the input is not an integer
+#     DISPLAY an error message
+# ELSE IF the number is negative
+#     DISPLAY an error message
+# ELSE
+#     SET result to 1
+#     FOR each value from 1 up to the number
+#         SET result to result multiplied by value
+#     DISPLAY result
+# END
+
+
+try:
+    number = int(input("Enter a whole number (0 or greater): "))
+
+    # Factorials are not defined for negative integers.
+    if number < 0:
+        print("Please enter zero or a positive whole number.")
+    else:
+        # Start at 1 because multiplying by zero would always give zero.
+        # This also gives the correct answer for 0!, which is 1.
+        result = 1
+
+        # The end of range is excluded, so add 1 to include the input number.
+        for value in range(1, number + 1):
+            result = result * value
+
+        print("The factorial of", number, "is", result)
+
+except ValueError:
+    # Handle text or decimal input instead of stopping with an error.
+    print("Invalid input. Please enter a whole number, such as 0, 3 or 5.")
